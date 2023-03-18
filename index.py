@@ -1,4 +1,5 @@
 from flask import Flask
+from api.prompt import Prompt
 app = Flask(__name__)
 
 import openai
