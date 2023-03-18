@@ -1,11 +1,12 @@
 import os
 
 import openai
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask
+
+
 
 app = Flask(__name__)
-openai.api_key = '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'
-
+openai.api_key = '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'
 
 @app.route("/")
 def index():
@@ -15,4 +16,7 @@ def index():
         temperature=1,
     )
     return response.choices[0].text
+
+if __name__ == "__main__":
+    app.run()
 
