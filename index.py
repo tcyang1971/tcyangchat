@@ -1,27 +1,26 @@
 import os
+
 import openai
-import requests
+from flask import Flask, redirect, render_template, request, url_for
 
-from flask import Flask, request
 app = Flask(__name__)
-
 openai.api_key = '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'
 
-@app.route("/")
-def index():
-    # return "Hello 子青!"
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt="台灣大學評價如何？",
-        max_tokens=50,
-        temperature=1,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0,
-        stop=[" END"]
-        )
-    message = response.choices[0].text
-    return message
 
-if __name__ == "__main__":
-   app.run()
+@app.route("/", methods=("GET", "POST"))
+def index():
+    if request.method == "POST":
+        animal = request.form["animal"]
+        response = openai.Completion.create(
+            model="text-davinci-002",
+            prompt=generate_prompt(animal),
+            temperature=1,
+        )
+        return redirect(url_for("index", result=response.choices[0].text))
+
+    result = request.args.get("result")
+    return render_template("index.html", result=result)
+
+
+def generate_prompt(animal):
+    return format(animal.capitalize()
