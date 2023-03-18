@@ -1,8 +1,8 @@
 from flask import Flask
 app = Flask(__name__)
 
-import os
 import openai
+import os
 openai.api_key = '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'
 
 @app.route("/")
@@ -18,8 +18,8 @@ def index():
     )
 
 # 接收到回覆訊息後，移除換行符號
-    reply_msg = response["choices"][0]["text"].replace('\n','')
-    return reply_msg
+    message = response.choices[0].text.strip()
+    return message
 
 if __name__ == "__main__":
     app.run()
