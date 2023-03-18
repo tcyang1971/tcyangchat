@@ -16,11 +16,10 @@ def index():
             prompt=generate_prompt(animal),
             temperature=1,
         )
-        return redirect(url_for("index", result=response.choices[0].text))
+        return response.choices[0].text
 
     result = request.args.get("result")
-    return render_template("index.html", result=result)
-
+    return result
 
 def generate_prompt(animal):
     return format(animal.capitalize()
