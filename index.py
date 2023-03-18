@@ -7,19 +7,12 @@ app = Flask(__name__)
 openai.api_key = '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'
 
 
-@app.route("/", methods=("GET", "POST"))
+@app.route("/")
 def index():
-    if request.method == "POST":
-        animal = request.form["animal"]
-        response = openai.Completion.create(
-            model="text-davinci-002",
-            prompt=generate_prompt(animal),
-            temperature=1,
-        )
-        return response.choices[0].text
+    response = openai.Completion.create(
+        model="text-davinci-002",
+        prompt="chatBot",
+        temperature=1,
+    )
+    return response.choices[0].text
 
-    result = request.args.get("result")
-    return result
-
-def generate_prompt(animal):
-    return format(animal.capitalize()
