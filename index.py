@@ -11,7 +11,7 @@ app = Flask(__name__)
 def index():
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt="靜宜大學資管系楊子青老師在App開發方面？",
+        prompt="靜宜大學資管系楊子青老師在獲獎方面？",
         max_tokens=128,
         temperature=0.5,
     )
