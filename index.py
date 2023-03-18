@@ -4,13 +4,13 @@ import openai
 from flask import Flask
 
 app = Flask(__name__)
-openai.api_key = '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'
+openai.api_key = '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'
 
 @app.route("/")
 def index():
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt="靜宜大學資管系評價如何？",
+        prompt="靜宜大學資管系楊子青老師在指導專題方面？",
         max_tokens=128,
         temperature=0.5,
     )
