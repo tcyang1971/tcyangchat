@@ -1,8 +1,9 @@
-from flask import Flask
+import os
+import openai
+
+from flask import Flask, redirect, render_template, request, url_for
 app = Flask(__name__)
 
-import openai
-import os
 openai.api_key = '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'
 
 @app.route("/")
@@ -12,11 +13,9 @@ def index():
         model="text-davinci-003",
         prompt="台灣大學評價如何？",
         max_tokens=128,
-        temperature=0.5,
-        )
-
-# 接收到回覆訊息後，移除換行符號
-    #message = response.choices[0].text.strip()
+        temperature=0.6,
+    )
+    #message = response.choices[0].text
     message = "Hi"
     return message
 
