@@ -1,12 +1,13 @@
-#import os
-
+import os
 import openai
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 from flask import Flask
 
 app = Flask(__name__)
 
-from config import key
-openai.api_key = key
+#from config import key
+#openai.api_key = key
 
 @app.route("/")
 def index():
