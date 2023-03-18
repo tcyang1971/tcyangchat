@@ -8,10 +8,10 @@ openai.api_key = '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'
 def index():
     # return "Hello 子青!"
     response = openai.Completion.create(
-    model="text-davinci-003",
-    prompt="靜宜大學評價如何？",
-    max_tokens=32,
-    temperature=0.5,
+        model="text-davinci-003",
+        prompt="靜宜大學評價如何？",
+        max_tokens=32,
+        temperature=0.5,
     )
 
 # 接收到回覆訊息後，移除換行符號
