@@ -1,2 +1,2 @@
-flask
-openai
+Flask==2.1.0
+openai==0.12.0
