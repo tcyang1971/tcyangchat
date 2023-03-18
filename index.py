@@ -9,16 +9,15 @@ openai.api_key = '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'
 def index():
     # return "Hello 子青!"
     response = openai.Completion.create(
-        engine="davinci",
-        prompt="靜宜大學評價",
-        max_tokens=100,
-        n=1,
+        model="text-davinci-003",
+        prompt="台灣大學評價如何？",
+        max_tokens=128,
         temperature=0.5,
-    )
+        )
 
 # 接收到回覆訊息後，移除換行符號
     #message = response.choices[0].text.strip()
-    message = "Gi"
+    message = "Hi"
     return message
 
 if __name__ == "__main__":
