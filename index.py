@@ -25,7 +25,7 @@ def index():
             'Authorization': 'Bearer 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'
         },
         json={
-            'prompt': message,
+            'prompt': "台灣大學評價如何？",
             'max_tokens': 50,
             'n': 1,
             'stop': '\n'
