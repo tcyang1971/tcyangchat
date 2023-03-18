@@ -5,7 +5,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-import config
+from config import key
 openai.api_key = key
 
 @app.route("/")
