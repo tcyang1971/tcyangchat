@@ -4,7 +4,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 from flask import Flask
 app = Flask(__name__)
-from waitress import serve
+#from waitress import serve
 
 
 @app.route("/")
@@ -19,5 +19,5 @@ def index():
     return msg
 
 if __name__ == "__main__":
-    #app.run()
-    serve(app, host='0.0.0.0', port=8080)
+    app.run()
+    #serve(app, host='0.0.0.0', port=8080)
