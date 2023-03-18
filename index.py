@@ -21,7 +21,7 @@ def index():
     message = response.choices[0].text.strip()
     return message
 
-if __name__ == "__main__":
-    app.run()
+#if __name__ == "__main__":
+#   app.run()
 
 
