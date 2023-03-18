@@ -13,7 +13,7 @@ def index():
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt="靜宜大學評價如何？",
-        max_tokens=128,
+        max_tokens=32,
         temperature=0.5,
     )
 
