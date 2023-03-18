@@ -1,4 +1,4 @@
-import os
+#import os
 
 import openai
 from flask import Flask
@@ -14,7 +14,8 @@ def index():
         max_tokens=128,
         temperature=0.5,
     )
-    return response.choices[0].text
+    msg = response.choices[0].text
+    return msg
 
 if __name__ == "__main__":
     app.run()
