@@ -19,7 +19,7 @@ def index():
 
 # 接收到回覆訊息後，移除換行符號
     reply_msg = response["choices"][0]["text"].replace('\n','')
-    return "Hello 子青!"
+    return reply_msg
 
 if __name__ == "__main__":
     app.run()
