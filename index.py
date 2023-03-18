@@ -2,11 +2,7 @@ from flask import Flask
 app = Flask(__name__)
 
 import openai
-import os
 openai.api_key = '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'
-
-completed_text = response["choices"][0]["text"]
-print(completed_text)
 
 @app.route("/")
 def index():
