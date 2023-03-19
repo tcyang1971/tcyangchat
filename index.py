@@ -28,7 +28,7 @@ def webhook():
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=msg,
-        max_tokens=30,
+        max_tokens=100,
         temperature=0.5,
     )
     info = "AI：" + response.choices[0].text
