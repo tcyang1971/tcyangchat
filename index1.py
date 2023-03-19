@@ -2,7 +2,7 @@ import os
 import openai
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-from flask import Flask, request, make_response, jsonify
+from flask import Flask
 app = Flask(__name__)
 #from waitress import serve
 
@@ -17,17 +17,6 @@ def index():
     )
     msg = response.choices[0].text
     return msg
-
-
-@app.route("/webhook", methods=["POST"])
-def webhook():
-    # build a request object
-    req = request.get_json(force=True)
-    # fetch queryResult from json
-    msg =  req.get("queryResult").get("queryText")
-    info = "查詢內容：" + msg
-    return make_response(jsonify({"fulfillmentText": info}))
-
 
 if __name__ == "__main__":
     app.run()
