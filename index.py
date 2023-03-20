@@ -19,7 +19,7 @@ def index():
 @app.route("/webhook", methods=["POST"])
 def webhook():
     req = request.get_json(force=True)
-    msg =  req.get("queryResult").get("queryText")
+    msg =  req["queryResult"]["queryText"]
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=msg,
