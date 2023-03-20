@@ -16,5 +16,18 @@ def index():
     msg = response.choices[0].text
     return msg
 
+@app.route("/webhook", methods=["POST"])
+def webhook():
+    req = request.get_json(force=True)
+    msg =  req.get("queryResult").get("queryText")
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=msg,
+        max_tokens=100,
+        temperature=0.5,
+    )
+    info = "AI：" + response.choices[0].text
+    return make_response(jsonify({"fulfillmentText": info}))
+
 if __name__ == "__main__":
     app.run()
